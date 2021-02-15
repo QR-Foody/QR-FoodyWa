@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QRFoodyWa", "QRFoodyWa\QRFo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B8B202CA-16DF-4EF4-88D5-2BEDCA1DF4B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{B343427C-7236-4DA2-98D5-6AC814FF6875}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{B343427C-7236-4DA2-98D5-6AC814FF6875}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

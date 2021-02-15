@@ -26,8 +26,8 @@ namespace DataAccess.Entities
         [JsonProperty("password")]
         public string Password { get; set; }
 
-        [JsonProperty("subscription")]
-        public string Subscription { get; set; }
+        [JsonProperty("subscriptionId")]
+        public string SubscriptionId { get; set; }
 
         public UserEntity() : base()
         {

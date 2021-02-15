@@ -6,21 +6,27 @@ using System.Text;
 
 namespace DataAccess.Entities
 {
-    public class SubscriptionEntity : Entity<string>
+    public class MenuEntity : Entity<string>
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("price")]
-        public double Cost { get; set; }
-
         [JsonProperty("description")]
         public string Description { get; set; }
 
-        public SubscriptionEntity() : base()
+        [JsonProperty("createdDate")]
+        public DateTime CreatedDate { get; set; }
+
+        [JsonProperty("expirationDate")]
+        public DateTime ExpirationDate { get; set; }
+
+        [JsonProperty("active")]
+        public bool Active { get; set; }
+
+        public MenuEntity() : base()
         {
             this.Id = Guid.NewGuid().ToString();
-            this.Object = "Subscription";
+            this.Object = "Menu";
         }
     }
 }

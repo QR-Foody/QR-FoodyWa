@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using DataAccess.DataStorage;
 using System;
 using Business;
+using Microsoft.Extensions.Logging;
 
 namespace QRFoodyWa
 {
@@ -47,7 +48,7 @@ namespace QRFoodyWa
         private void RegisterDependencies(IServiceCollection services)
         {
             services.AddTransient<ISubscriptionEntityDataStorage, SubscriptionEntityDataStorage>();
-            services.AddTransient<ISubscriptionBo, SubscriptionBo>();
+            services.AddTransient<ISubscriptionBo, SubscriptionBo>();      
         }
 
         private EntityDataStoreOptions GetEntityDataStoreOptions()

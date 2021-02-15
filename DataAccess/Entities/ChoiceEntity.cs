@@ -6,21 +6,21 @@ using System.Text;
 
 namespace DataAccess.Entities
 {
-    public class SubscriptionEntity : Entity<string>
+    class ChoiceEntity : Entity<string>
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("price")]
-        public double Cost { get; set; }
+        public double Price { get; set; }
 
-        [JsonProperty("description")]
-        public string Description { get; set; }
+        [JsonProperty("productId")]
+        public string ProductId { get; set; }
 
-        public SubscriptionEntity() : base()
+        public ChoiceEntity() : base()
         {
             this.Id = Guid.NewGuid().ToString();
-            this.Object = "Subscription";
+            this.Object = "Choice";
         }
     }
 }

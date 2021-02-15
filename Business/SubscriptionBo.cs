@@ -22,11 +22,13 @@ namespace Business
                 new SubscriptionEntity
                 {
                     Name = subscriptionDto.Name,
-                    Cost = subscriptionDto.Cost,
+                    Description = subscriptionDto.Description,
+                    Cost = subscriptionDto.Price,
                 };
 
             await _subscriptionEntityDataStorage.AddAsync(
                 subscriptionEntity);
         }
+ 
     }
 }
