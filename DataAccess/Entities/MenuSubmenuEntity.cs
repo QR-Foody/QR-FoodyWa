@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Entities
 {
-    class MenuSubmenuEntity : Entity<string>
+    public class MenuSubmenuEntity : Entity<string>
     {
         [JsonProperty("submenuId")]
         public string SubmenuId { get; set; }

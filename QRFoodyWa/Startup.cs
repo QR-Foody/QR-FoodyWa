@@ -11,6 +11,7 @@ using DataAccess.DataStorage;
 using System;
 using Business;
 using Microsoft.Extensions.Logging;
+using Business.Interface;
 
 namespace QRFoodyWa
 {

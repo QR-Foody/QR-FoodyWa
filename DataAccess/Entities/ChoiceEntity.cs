@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Entities
 {
-    class ChoiceEntity : Entity<string>
+    public class ChoiceEntity : Entity<string>
     {
         [JsonProperty("name")]
         public string Name { get; set; }

@@ -29,7 +29,7 @@ namespace DataAccess.Entities
         [JsonProperty("closeAt")]
         public DateTime CloseAt { get; set; }
 
-        [JsonProperty("UserId")]
+        [JsonProperty("userId")]
         public string UserId { get; set; }
 
         public BusinessEntity() : base()

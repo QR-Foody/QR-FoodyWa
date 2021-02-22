@@ -1,41 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Business;
 using Business.Dtos;
-using Business.Interface;
+using Business.Interfaces;
 using DataAccess.DataStorage;
 using DataAccess.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-
-
 namespace QRFoodyWa.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
-    public class SubscriptionController : ControllerBase
+    [ApiController]
+    public class ProductController : ControllerBase
     {
         #region props
         private static ILogger _logger;
-        private readonly ISubscriptionBo _subscriptionBo;
+        private readonly IProductBo _productBo;
         #endregion
 
         #region constructor
-        public SubscriptionController(ISubscriptionBo subscriptionBo) {
-            _subscriptionBo = subscriptionBo ??
+        public ProductController(IProductBo productBo)
+        {
+            _productBo = productBo ??
                 throw new ArgumentNullException("_subscriptionBo", "_subscriptionBo can not be null");
         }
         #endregion
 
         #region Methods
         [HttpGet]
-        public async Task<IEnumerable<SubscriptionEntity>> GetSubscriptionsAsync()
+        public async Task<IEnumerable<ProductEntity>> GetProductsAsync()
         {
             try
             {
-                return await _subscriptionBo.ListSusbscription();
+                return await _productBo.ListProduct();
             }
             catch (Exception ex)
             {
@@ -45,16 +45,16 @@ namespace QRFoodyWa.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<StatusCodeResult> AddSubscriptionAsync(SubscriptionDto subscriptionDto)
+        public async Task<StatusCodeResult> AddProductAsync(ProductDto productDto)
         {
 
             try
             {
-                if (subscriptionDto == null)
-                    throw new ArgumentNullException("subscriptionDto", "subscriptionDto can not be null");
+                if (productDto == null)
+                    throw new ArgumentNullException("productDto", "subscriptionDto can not be null");
 
-                await _subscriptionBo.AddSubscription(
-                   subscriptionDto);
+                await _productBo.AddProduct(
+                   productDto);
 
                 return StatusCode(200);
             }
@@ -66,11 +66,11 @@ namespace QRFoodyWa.Controllers
         }
 
         [HttpPost("update")]
-        public async Task UpdateSubscriptionAsync(SubscriptionEntity subscriptionEntity)
+        public async Task UpdateProductAsync(ProductEntity productEntity)
         {
             try
             {
-                await _subscriptionBo.UpdateSubscriptionById(subscriptionEntity);
+                await _productBo.UpdateProduct(productEntity);
             }
             catch (Exception ex)
             {
@@ -78,12 +78,12 @@ namespace QRFoodyWa.Controllers
             }
         }
 
-        [HttpDelete("{subscriptionId}")]
-        public async Task DeleteSubscriptionAsync(string subscriptionId)
+        [HttpDelete("{productId}")]
+        public async Task DeleteProductAsync(string productId)
         {
             try
             {
-                await _subscriptionBo.DeleteSubscriptionById(subscriptionId);
+                await _productBo.DeleteProductById(productId);
             }
             catch (Exception ex)
             {
@@ -91,12 +91,12 @@ namespace QRFoodyWa.Controllers
             }
         }
 
-        [HttpGet("{subscriptionId}")]
-        public async Task<SubscriptionEntity> GetSubscriptionAsync(string subscriptionId)
+        [HttpGet("{productId}")]
+        public async Task<ProductEntity> GetProductAsync(string productId)
         {
             try
             {
-                return await _subscriptionBo.GetSubscriptionById(subscriptionId);
+                return await _productBo.GetProductById(productId);
             }
             catch (Exception ex)
             {
@@ -104,13 +104,6 @@ namespace QRFoodyWa.Controllers
                 return null;
             }
         }
-
-        [HttpGet]
-        public string Ping()
-        {
-            return "Pong";
-        }
         #endregion
-
     }
 }

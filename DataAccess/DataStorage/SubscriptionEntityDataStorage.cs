@@ -17,7 +17,7 @@ namespace DataAccess.DataStorage
         public async Task<IEnumerable<SubscriptionEntity>> ListAsync()
         {
             var query =
-                "Object eq 'Subsription'";
+                "Object eq 'Subscription'";
 
             return await base.ListAsync(query);
         }

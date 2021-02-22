@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Entities
 {
-    class ProductEntity : Entity<string>
+    public class ProductEntity : Entity<string>
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -16,6 +16,9 @@ namespace DataAccess.Entities
 
         [JsonProperty("price")]
         public double Price { get; set; }
+
+        [JsonProperty("imageUri")]
+        public string ImageUri { get; set; }
 
         public ProductEntity() : base()
         {

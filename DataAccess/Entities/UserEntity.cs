@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Entities
 {
-    class UserEntity : Entity<string>
+    public class UserEntity : Entity<string>
     {
         [JsonProperty("firstName")]
         public string FirstName { get; set; }
