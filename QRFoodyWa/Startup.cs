@@ -12,12 +12,13 @@ using System;
 using Business;
 using Microsoft.Extensions.Logging;
 using Business.Interface;
+using Business.Interfaces;
 
 namespace QRFoodyWa
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup()
         {
             Configuration = new ConfigurationBuilder()
                  .AddJsonFile("appsettings.json")
@@ -48,8 +49,19 @@ namespace QRFoodyWa
 
         private void RegisterDependencies(IServiceCollection services)
         {
+            //DataAccess Layer
             services.AddTransient<ISubscriptionEntityDataStorage, SubscriptionEntityDataStorage>();
-            services.AddTransient<ISubscriptionBo, SubscriptionBo>();      
+            services.AddTransient<IMenuEntityDataStorage, MenuEntityDataStorage>();
+            services.AddTransient<IProductEntityDataStorage, ProductEntityDataStorage>();
+            services.AddTransient<ISubmenuEntityDataStorage, SubmenuEntityDataStorage>();
+            services.AddTransient<IUserEntityDataStorage, UserEntityDataStorage>();
+
+            //BusinessLayer
+            services.AddTransient<ISubscriptionBo, SubscriptionBo>();
+            services.AddTransient<IMenuBo, MenuBo>();
+            services.AddTransient<IProductBo, ProductBo>();
+            services.AddTransient<ISubmenuBo, SubmenuBo>();
+            services.AddTransient<IUserBo, UserBo>();
         }
 
         private EntityDataStoreOptions GetEntityDataStoreOptions()

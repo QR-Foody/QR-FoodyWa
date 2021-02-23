@@ -27,6 +27,7 @@ namespace DataAccess.Entities
         {
             this.Id = Guid.NewGuid().ToString();
             this.Object = "Menu";
+            this.CreatedDate = DateTime.UtcNow;
         }
     }
 }

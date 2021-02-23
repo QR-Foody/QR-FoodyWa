@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using QRFoodyWa.Helpers;
 
 namespace QRFoodyWa.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [ApiKey]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

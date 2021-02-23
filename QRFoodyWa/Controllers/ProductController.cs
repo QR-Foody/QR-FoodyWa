@@ -9,11 +9,13 @@ using DataAccess.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using QRFoodyWa.Helpers;
 
 namespace QRFoodyWa.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey]
     public class ProductController : ControllerBase
     {
         #region props
@@ -25,7 +27,7 @@ namespace QRFoodyWa.Controllers
         public ProductController(IProductBo productBo)
         {
             _productBo = productBo ??
-                throw new ArgumentNullException("_subscriptionBo", "_subscriptionBo can not be null");
+                throw new ArgumentNullException("_productBo", "_productBo can not be null");
         }
         #endregion
 
@@ -51,7 +53,7 @@ namespace QRFoodyWa.Controllers
             try
             {
                 if (productDto == null)
-                    throw new ArgumentNullException("productDto", "subscriptionDto can not be null");
+                    throw new ArgumentNullException("productDto", "productDto can not be null");
 
                 await _productBo.AddProduct(
                    productDto);

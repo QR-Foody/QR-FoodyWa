@@ -8,13 +8,13 @@ using DataAccess.DataStorage;
 using DataAccess.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-
-
+using QRFoodyWa.Helpers;
 
 namespace QRFoodyWa.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [ApiKey]
     public class SubscriptionController : ControllerBase
     {
         #region props
